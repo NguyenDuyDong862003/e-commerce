@@ -1,8 +1,9 @@
 import React from "react";
+import './MenuBar.css';
 
 function MenuBar(props: any) {
     return (
-        <div>
+        <div className="containerMenuBar">
             <div className="feedBack">Feed back</div>
             <div className="login">Login</div>
             <div className="signUp">Sign up</div>

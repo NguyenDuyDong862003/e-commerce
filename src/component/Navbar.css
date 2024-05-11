@@ -1,0 +1,13 @@
+.header div {
+  display: inline-block;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.header .searchBar .btnSearch {
+  background-color: orange;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+}
+
+/*# sourceMappingURL=Navbar.css.map */

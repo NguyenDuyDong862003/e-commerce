@@ -2,12 +2,14 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Hello from "./component/Hello";
-import MenuBar from "./component/MenuBar";
+import Navbar1 from "./component/Navbar1";
+import Navbar from "./component/Navbar";
 
 function App() {
     return (
         <div className="App">
-            <MenuBar></MenuBar>
+            <Navbar1></Navbar1>
+            {/*<Navbar></Navbar>*/}
             <h1>Web Thương mại điện tử - Front end - Project cuối kỳ</h1>
             <Hello
                 name="Nguyễn Duy Đông"

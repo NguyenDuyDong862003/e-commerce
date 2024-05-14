@@ -1,17 +1,78 @@
-.header {
-  div {
-    display: inline-block;
-    margin-left: 20px;
-    margin-right: 20px;
-  }
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  background-color: deeppink;
+  color: white;
 
-  .searchBar {
-    .btnSearch {
-      background-color: orange;
-      width: 30px;
-      height: 30px;
-      border-radius: 5px;
+  .navLogo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    img {
+      width: 50px;
+      height: 50px;
     }
   }
 
+  .navMenu {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    gap: 10px;
+
+    li {
+      cursor: pointer;
+      padding: 0 20px;
+
+      a {
+        text-decoration: none;
+        color: inherit; /* Sử dụng màu sắc hiện tại của thẻ cha */
+      }
+
+      hr {
+        border: none;
+        width: 80%;
+        height: 3px;
+        border-radius: 10px;
+        background-color: white;
+      }
+    }
+  }
+
+  .navLoginCart {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    button {
+      width: 100px;
+      height: 30px;
+      outline: none;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+
+      &:active {
+        background-color: lightpink;
+        //color: white;
+      }
+    }
+
+    img {
+      width: 50px;
+      height: 50px;
+    }
+
+    .navCartCount {
+      width: 22px;
+      height: 22px;
+      margin-top: -35px;
+      margin-left: -35px;
+      border-radius: 11px;
+      background-color: white;
+      color: deeppink;
+    }
+  }
 }

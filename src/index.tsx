@@ -7,40 +7,23 @@ import reportWebVitals from './reportWebVitals';
 import {store} from "./store/Store";
 import {Provider} from "react-redux";
 
-import {BrowserRouter} from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+
+// import {BrowserRouter} from "react-router-dom";
+
+// router
+import {RouterProvider} from "react-router-dom";
+import {router} from "./Router/web";
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
 );
 
-// root.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>
-// );
-
-// root.render(
-//     <React.StrictMode>
-//         <BrowserRouter>
-//             <App/>
-//         </BrowserRouter>
-//     </React.StrictMode>
-// );
-
-// root.render(
-//     <React.StrictMode>
-//         <Provider store={store}>
-//             <App/>
-//         </Provider>
-//     </React.StrictMode>
-// );
-
 root.render(
     <React.StrictMode>
         <Provider store={store}>
-            <BrowserRouter>
-                <App/>
-            </BrowserRouter>
+            <RouterProvider router={router}></RouterProvider>
         </Provider>
     </React.StrictMode>
 );

@@ -7,15 +7,15 @@ import cart from "../img/shopping_cart_PNG38.png";
 import {Link} from "react-router-dom";
 
 const menuItems = [
-    {label: "Shop", value: "shop"},
-    {label: "Men", value: "men"},
-    {label: "Women", value: "women"},
+    {label: "Shop", value: "list-product"},
+    {label: "Category", value: "category"},
+    {label: "Deal", value: "deal"},
     {label: "Kids", value: "kid"}
 ];
 
 function Navbar() {
 
-    const [menuItem, setMenuItem] = useState("shop");
+    const [menuItem, setMenuItem] = useState("list-product");
 
     return (
         <div className="navbar">

@@ -2,15 +2,21 @@ import "./productDetail.css";
 import {useLoaderData, useNavigate} from "react-router-dom";
 import {products} from "../data/ProductData";
 
-export async function loadProduct({params}){
-    return products.find( (product)=>product.id==params.idProduct);
+export async function loadProduct({params}) {
+    console.log(params);
+    return products.find((product) => product.id == params.id);
 }
 
-export function ProductDetail(){
-    const product=useLoaderData();
-    const navigate= useNavigate();
+export function ProductDetail() {
+    const product = useLoaderData();
+    const navigate = useNavigate();
     return (<div className="container">
-        <div><button onClick={()=>{navigate(-1)}} className={"btn btn-primary"}>BACK</button></div>
+        <div>
+            <button onClick={() => {
+                navigate(-1)
+            }} className={"btn btn-primary"}>BACK
+            </button>
+        </div>
         <div className="card">
             <div className="container-fliud">
                 <div className="wrapper row">

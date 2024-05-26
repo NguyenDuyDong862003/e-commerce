@@ -1,9 +1,10 @@
 const loadCart = () => {
+    // console.log(localStorage)
     return JSON.parse(localStorage.getItem('cart')) ?? [];
 }
 const initState = {
     products: [],
-    cart:loadCart()
+    cart: loadCart()
 }
 export const root = (state = initState, action) => {
     switch (action.type) {
@@ -43,6 +44,13 @@ export const root = (state = initState, action) => {
                 cart: [...cart]
             }
         }
+        // case "cart/load": {
+        //     let cart = state.cart;
+        //     return {
+        //         ...state,
+        //         cart: [...cart]
+        //     }
+        // }
         default:
             return state;
     }

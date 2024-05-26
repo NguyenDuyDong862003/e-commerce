@@ -44,6 +44,21 @@ export const root = (state = initState, action) => {
                 cart: [...cart]
             }
         }
+        case "cart/setQuantityItem": {
+            let newCart = state.cart.map(item => {
+                    if (item.id == action.payload.id) {
+                        return {...item, quantity: action.payload.quantity}
+                    }
+                }
+            )
+            // let cart = [...newCart];
+            let cart = [...state.cart];
+            localStorage.setItem('cart', JSON.stringify(cart));
+            return {
+                ...state,
+                cart: [...cart]
+            }
+        }
         // case "cart/load": {
         //     let cart = state.cart;
         //     return {

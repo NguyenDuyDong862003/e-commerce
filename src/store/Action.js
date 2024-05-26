@@ -1,4 +1,5 @@
 export const loadProduct = (data) => {
+    console.log("Test: ", data)
     return {
         type: 'product/load',
         payload: data

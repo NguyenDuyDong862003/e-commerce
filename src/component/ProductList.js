@@ -39,7 +39,7 @@ export function Product(data) {
         } else {
             // dispatch({type: 'cart.add', payload: {product: product}})
             dispatch(addCart(product));
-            // dispatch(setQuantityItem({id: product.id, quantity: 1}));
+            dispatch(setQuantityItem({id: product.id, quantity: 1}));
         }
         setProduct({...product, color: product.color === 'blue' ? 'red' : 'blue', isBuying: !product.isBuying})
     }

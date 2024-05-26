@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import './Cart.css';
 
 import {useDispatch, useSelector} from "react-redux";
-import {addCart, delCart} from "../store/Action";
+import {addCart, delCart, setQuantityItem} from "../store/Action";
 import {Link} from "react-router-dom";
 
 function Cart() {
@@ -34,44 +34,46 @@ function Cart() {
                 {/*<div className="row border border-primary"></div>*/}
 
                 {cart.map((item: any) => (
-                    <Product key={item.id}
-                             id={item.id}
-                             title={item.title}
-                             productImageUrl={item.productImageUrl}
-                             price={item.price}
+
+                    < Product key={item.id}
+                              id={item.id}
+                              title={item.title}
+                              productImageUrl={item.productImageUrl}
+                              price={item.price}
+                              quantity={item.quantity}
                     />
                 ))}
 
-                <div className="itemCart row text-bg-light border border-danger border-to">
-                    <div className="col-1">
-                        <input className="form-check-input text-bg-danger" type="checkbox"/>
-                    </div>
-                    <div className="col-4 d-flex gap-2">
-                        <img className="col-1" src="a"/>
-                        <h5>
-                            {/*<label className=" fw-bold">*/}
-                            Tiêu đề sản phẩm
-                            Tiêu đề sản phẩm
-                            Tiêu đề sản phẩm
-                            Tiêu đề sản phẩm
-                            {/*</label>*/}
-                        </h5>
-                    </div>
-                    <div className=" col-2">
-                        125000₫
-                    </div>
-                    <div className="col-2 d-flex gap-1">
-                        <div className="btn btn-danger">-</div>
-                        <input className="form-control text-black" type=" number"/>
-                        <div className="btn btn-success">+</div>
-                    </div>
-                    <div className="col-2 text-danger">
-                        125000₫
-                    </div>
-                    <div className="col-1">
-                        <button className=" col btn btn-danger w-100">Xóa</button>
-                    </div>
-                </div>
+                {/*<div className="itemCart row text-bg-light border border-danger border-to">*/}
+                {/*    <div className="col-1">*/}
+                {/*        <input className="form-check-input text-bg-danger" type="checkbox"/>*/}
+                {/*    </div>*/}
+                {/*    <div className="col-4 d-flex gap-2">*/}
+                {/*        <img className="col-1" src="a"/>*/}
+                {/*        <h5>*/}
+                {/*            /!*<label className=" fw-bold">*!/*/}
+                {/*            Tiêu đề sản phẩm*/}
+                {/*            Tiêu đề sản phẩm*/}
+                {/*            Tiêu đề sản phẩm*/}
+                {/*            Tiêu đề sản phẩm*/}
+                {/*            /!*</label>*!/*/}
+                {/*        </h5>*/}
+                {/*    </div>*/}
+                {/*    <div className=" col-2">*/}
+                {/*        125000₫*/}
+                {/*    </div>*/}
+                {/*    <div className="col-2 d-flex gap-1">*/}
+                {/*        <div className="btn btn-danger">-</div>*/}
+                {/*        <input className="form-control text-black" type=" number"/>*/}
+                {/*        <div className="btn btn-success">+</div>*/}
+                {/*    </div>*/}
+                {/*    <div className="col-2 text-danger">*/}
+                {/*        125000₫*/}
+                {/*    </div>*/}
+                {/*    <div className="col-1">*/}
+                {/*        <button className=" col btn btn-danger w-100">Xóa</button>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
             </div>
         </div>
     );
@@ -82,7 +84,7 @@ export default Cart;
 export function Product(data: any) {
     var [product, setProduct] = useState(data);
 
-    console.log("test", product);
+    console.log("test render", product);
 
     const dispatch = useDispatch();
 
@@ -102,18 +104,40 @@ export function Product(data: any) {
                 {product.price}
             </div>
             <div className="col-2 d-flex gap-1">
-                <div className="btn btn-danger">-</div>
-                <input className="form-control text-black" type="number" value={1}></input>
-                <div className="btn btn-success">+</div>
+                <div className="btn btn-danger"
+                     onClick={() => {
+                         if (product.quantity > 1) {
+                             setProduct({...product, quantity: product.quantity - 1})
+                             dispatch(setQuantityItem({id: product.id, quantity: product.quantity}))
+
+                             // setProduct({...product, quantity: product.quantity - 1})
+                             // dispatch(setQuantityItem({id: product.id, quantity: product.quantity - 1}))
+                         }
+                     }}>-
+                </div>
+                <input className="form-control text-black" type="number"
+                       onChange={event => {
+                           // nó yêu cầu phải có onChange thì mới sửa dc cái input,
+                           // nhưng có onChange rồi vẫn không được????
+                           console.log(event.target.value)
+                       }}
+                       value={product.quantity}
+                ></input>
+                <div className="btn btn-success"
+                     onClick={() => {
+                         setProduct({...product, quantity: product.quantity + 1})
+                         dispatch(setQuantityItem({id: product.id, quantity: product.quantity}))
+                     }}>+
+                </div>
             </div>
             <div className="col-2 text-danger">
-                {product.price * 2}
+                {product.price * product.quantity}
             </div>
             <div className="col-1">
                 <button className=" col btn btn-danger w-100"
                         onClick={() => {
                             dispatch(delCart(product))
-                            setProduct({...product})
+                            // setProduct({...product})
                             console.log("Click r")
                         }}
                 >Xóa

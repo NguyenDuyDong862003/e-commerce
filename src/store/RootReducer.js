@@ -1,5 +1,5 @@
 const loadCart = () => {
-    // console.log(localStorage)
+    console.log(localStorage)
     return JSON.parse(localStorage.getItem('cart')) ?? [];
 }
 const initState = {
@@ -45,14 +45,17 @@ export const root = (state = initState, action) => {
             }
         }
         case "cart/setQuantityItem": {
+            // chỗ này, sau khi hàm map dc duyệt thì nó trả về 1 array mới sau khi thực hiện xong
+            // các thay đổi trong function
             let newCart = state.cart.map(item => {
                     if (item.id == action.payload.id) {
-                        return {...item, quantity: action.payload.quantity}
+                        console.log("vô rồi")
+                        return {...item, quantity: action.payload.quantity};
                     }
+                    return item;
                 }
             )
-            // let cart = [...newCart];
-            let cart = [...state.cart];
+            let cart = [...newCart];
             localStorage.setItem('cart', JSON.stringify(cart));
             return {
                 ...state,

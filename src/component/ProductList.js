@@ -20,6 +20,7 @@ export default function ProductList() {
                              color={product.color}
                              isBuying={product.isBuying}
                              price={product.price}
+                             catagory={product.catagory}
                     />
                 ))}
             </div>

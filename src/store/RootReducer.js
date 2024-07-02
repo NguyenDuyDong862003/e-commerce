@@ -62,6 +62,22 @@ export const root = (state = initState, action) => {
                 cart: [...cart]
             }
         }
+        case "cart/setCheckoutItem": {
+            let newCart = state.cart.map(item => {
+                    if (item.id == action.payload.id) {
+                        console.log("thay đổi thành " + action.payload.isCheckout);
+                        return {...item, isCheckout: action.payload.isCheckout};
+                    }
+                    return item;
+                }
+            )
+            let cart = [...newCart];
+            localStorage.setItem('cart', JSON.stringify(cart));
+            return {
+                ...state,
+                cart: [...cart]
+            }
+        }
         // case "cart/load": {
         //     let cart = state.cart;
         //     return {

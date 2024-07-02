@@ -3,8 +3,10 @@ import React from "react";
 import './Navbar.css';
 
 import logo from "../img/tai-logo-truong-dai-hoc-nong-lam-tphcm.png";
-import cart from "../img/shopping_cart_PNG38.png";
+import imgCart from "../img/shopping_cart_PNG38.png";
 import {Link} from "react-router-dom";
+
+import {useSelector} from 'react-redux';
 
 const menuItems = [
     {label: "Shop", value: "list-product"},
@@ -14,6 +16,7 @@ const menuItems = [
 ];
 
 function Navbar() {
+    const cart = useSelector((state: any) => state.cart);
 
     const [menuItem, setMenuItem] = useState("list-product");
 
@@ -43,9 +46,9 @@ function Navbar() {
                     <button>Login</button>
                 </Link>
                 <Link to="/cart">
-                    <img src={cart} alt="Ảnh giỏ hàng"/>
+                    <img src={imgCart} alt="Ảnh giỏ hàng"/>
                 </Link>
-                <div className="navCartCount">10</div>
+                <div className="navCartCount">{cart.length}</div>
             </div>
         </div>
     )

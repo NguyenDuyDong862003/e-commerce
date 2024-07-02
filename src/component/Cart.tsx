@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import './Cart.css';
 
 import {useDispatch, useSelector} from "react-redux";
-import {addCart, delCart, setQuantityItem} from "../store/Action";
+import {addCart, delCart, setQuantityItem, setCheckoutItem} from "../store/Action";
 import {Link} from "react-router-dom";
 
 function Cart() {
@@ -13,7 +13,14 @@ function Cart() {
             <div className="container">
                 <div className="headerCart row text-bg-secondary">
                     <div className="col-1">
-                        <input className="form-check-input text-bg-danger " type="checkbox"/>
+                        <input className="form-check-input text-bg-danger " type="checkbox"
+                               onChange={
+                                   (event) => {
+                                       // tích chọn tất cả, hoặc hủy chọn tất cả
+                                       // bổ sung sau cũng được
+                                   }
+                               }
+                        />
                     </div>
                     <div className="col-4 d-flex">
                         Sản phẩm
@@ -41,6 +48,7 @@ function Cart() {
                               productImageUrl={item.productImageUrl}
                               price={item.price}
                               quantity={item.quantity}
+                              isCheckout={item.isCheckout}
                     />
                 ))}
 
@@ -75,6 +83,10 @@ function Cart() {
                 {/*    </div>*/}
                 {/*</div>*/}
             </div>
+            <div className="btn btn-primary"
+                 onClick={() => {
+                 }}>Thanh toán những món hàng đã tích chọn trong giỏ
+            </div>
         </div>
     );
 }
@@ -91,7 +103,14 @@ export function Product(data: any) {
     return (
         <div className="itemCart row text-bg-light border border-danger border-to">
             <div className="col-1">
-                <input className="form-check-input text-bg-danger" type="checkbox"/>
+                <input className="form-check-input text-bg-danger" type="checkbox"
+                       onChange={(event) => {
+                           console.log(event.target.checked)
+                           setProduct({...product, isCheckout: event.target.checked})
+                           dispatch(setCheckoutItem({id: product.id, isCheckout: event.target.checked}))
+                       }
+                       }
+                />
             </div>
             <div className="col-4 d-flex gap-2">
                 <img className="col-1" src={product.productImageUrl}/>
@@ -108,25 +127,28 @@ export function Product(data: any) {
                      onClick={() => {
                          if (product.quantity > 1) {
                              setProduct({...product, quantity: product.quantity - 1})
-                             dispatch(setQuantityItem({id: product.id, quantity: product.quantity}))
-
-                             // setProduct({...product, quantity: product.quantity - 1})
-                             // dispatch(setQuantityItem({id: product.id, quantity: product.quantity - 1}))
+                             dispatch(setQuantityItem({id: product.id, quantity: product.quantity - 1}))
                          }
                      }}>-
                 </div>
                 <input className="form-control text-black" type="number"
                        onChange={event => {
                            // nó yêu cầu phải có onChange thì mới sửa dc cái input,
-                           // nhưng có onChange rồi vẫn không được????
-                           console.log(event.target.value)
+                           // nhưng có onChange rồi vẫn không được???? phải gọi setProduct và dispatch
+                           let inputValue = Number(event.target.value);
+                           inputValue = Math.max(1, inputValue);
+                           console.log(inputValue)
+                           setProduct({...product, quantity: inputValue})
+                           // nhớ rằng sau khi gọi setProduct thì giá trị của Product ko cập nhật ngay
+                           // mà lần render tiếp theo mới cập nhật
+                           dispatch(setQuantityItem({id: product.id, quantity: inputValue}))
                        }}
                        value={product.quantity}
                 ></input>
                 <div className="btn btn-success"
                      onClick={() => {
                          setProduct({...product, quantity: product.quantity + 1})
-                         dispatch(setQuantityItem({id: product.id, quantity: product.quantity}))
+                         dispatch(setQuantityItem({id: product.id, quantity: product.quantity + 1}))
                      }}>+
                 </div>
             </div>

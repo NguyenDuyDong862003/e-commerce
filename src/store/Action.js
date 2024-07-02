@@ -25,3 +25,11 @@ export const setQuantityItem = (data) => {
         payload: data
     }
 }
+
+export const setCheckoutItem = (data) => {
+    // data này sẽ có dạng {id:x,isCheckout:true hoặc false}
+    return {
+        type: 'cart/setCheckoutItem',
+        payload: data
+    }
+}

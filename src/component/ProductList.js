@@ -2,7 +2,7 @@ import {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 import {addCart, delCart, setQuantityItem} from "../store/Action";
-import "./ProductList.css";
+// import "./ProductList.css";
 
 export default function ProductList() {
     const products = useSelector(state => state.products);
@@ -20,7 +20,6 @@ export default function ProductList() {
                              color={product.color}
                              isBuying={product.isBuying}
                              price={product.price}
-                             catagory={product.catagory}
                     />
                 ))}
             </div>

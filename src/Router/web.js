@@ -6,6 +6,7 @@ import Error from "../component/Error";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import Cart from "../component/Cart";
+import Checkout from "../component/Checkout";
 
 export const router = createBrowserRouter([
     {
@@ -23,6 +24,10 @@ export const router = createBrowserRouter([
             }, {
                 path: 'cart',
                 element: <Cart/>,
+                errorElement: <Error/>,
+            }, {
+                path: 'checkout',
+                element: <Checkout/>,
                 errorElement: <Error/>,
             }, {
                 path: 'login',

@@ -1,7 +1,7 @@
 import {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
-import {addCart, delCart} from "../store/Action";
+import {addCart, delCart, setCheckoutItem, setQuantityItem} from "../store/Action";
 // import "./ProductList.css";
 
 export default function ProductList() {
@@ -20,6 +20,7 @@ export default function ProductList() {
                              color={product.color}
                              isBuying={product.isBuying}
                              price={product.price}
+
                     />
                 ))}
             </div>
@@ -39,6 +40,8 @@ export function Product(data) {
         } else {
             // dispatch({type: 'cart.add', payload: {product: product}})
             dispatch(addCart(product));
+            dispatch(setQuantityItem({id: product.id, quantity: 1}));
+            dispatch(setCheckoutItem({id: product.id, isCheckout: false}));
         }
         setProduct({...product, color: product.color === 'blue' ? 'red' : 'blue', isBuying: !product.isBuying})
     }

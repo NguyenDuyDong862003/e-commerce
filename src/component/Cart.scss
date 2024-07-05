@@ -1,0 +1,17 @@
+.container {
+
+  .headerCart {
+    align-items: center;
+    height: 100px;
+  }
+
+  .itemCart {
+    align-items: center;
+    height: 150px;
+
+    img {
+      width: 80px;
+      height: 80px;
+    }
+  }
+}

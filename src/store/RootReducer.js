@@ -1,9 +1,10 @@
 const loadCart = () => {
+    console.log(localStorage)
     return JSON.parse(localStorage.getItem('cart')) ?? [];
 }
 const initState = {
     products: [],
-    cart:loadCart()
+    cart: loadCart()
 }
 export const root = (state = initState, action) => {
     switch (action.type) {
@@ -43,6 +44,47 @@ export const root = (state = initState, action) => {
                 cart: [...cart]
             }
         }
+        case "cart/setQuantityItem": {
+            // chỗ này, sau khi hàm map dc duyệt thì nó trả về 1 array mới sau khi thực hiện xong
+            // các thay đổi trong function
+            let newCart = state.cart.map(item => {
+                    if (item.id == action.payload.id) {
+                        console.log("vô rồi")
+                        return {...item, quantity: action.payload.quantity};
+                    }
+                    return item;
+                }
+            )
+            let cart = [...newCart];
+            localStorage.setItem('cart', JSON.stringify(cart));
+            return {
+                ...state,
+                cart: [...cart]
+            }
+        }
+        case "cart/setCheckoutItem": {
+            let newCart = state.cart.map(item => {
+                    if (item.id == action.payload.id) {
+                        console.log("thay đổi thành " + action.payload.isCheckout);
+                        return {...item, isCheckout: action.payload.isCheckout};
+                    }
+                    return item;
+                }
+            )
+            let cart = [...newCart];
+            localStorage.setItem('cart', JSON.stringify(cart));
+            return {
+                ...state,
+                cart: [...cart]
+            }
+        }
+        // case "cart/load": {
+        //     let cart = state.cart;
+        //     return {
+        //         ...state,
+        //         cart: [...cart]
+        //     }
+        // }
         default:
             return state;
     }

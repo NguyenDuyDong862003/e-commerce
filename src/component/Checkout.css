@@ -1,0 +1,14 @@
+.container .headerCheckout {
+  align-items: center;
+  height: 60px;
+}
+.container .itemCheckout {
+  align-items: center;
+  height: 100px;
+}
+.container .itemCheckout img {
+  width: 80px;
+  height: 80px;
+}
+
+/*# sourceMappingURL=Checkout.css.map */

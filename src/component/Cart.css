@@ -1,0 +1,14 @@
+.container .headerCart {
+  align-items: center;
+  height: 100px;
+}
+.container .itemCart {
+  align-items: center;
+  height: 150px;
+}
+.container .itemCart img {
+  width: 80px;
+  height: 80px;
+}
+
+/*# sourceMappingURL=Cart.css.map */

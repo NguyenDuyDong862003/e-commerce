@@ -6,6 +6,20 @@ import './Checkout.css';
 
 function Checkout() {
     const cart = useSelector((state: any) => state.cart);
+    let sumItem = cart.reduce((sum: number, item: any) => {
+        if (item.isCheckout) {
+            return sum + item.quantity;
+        }
+        return sum;
+    }, 0);
+
+    let sumAmount = cart.reduce((sum: number, item: any) => {
+        if (item.isCheckout) {
+            return sum + item.price * item.quantity;
+        }
+        return sum;
+    }, 0);
+
     return (
         <div>
             <h1>Đây là trang thanh toán</h1>
@@ -41,12 +55,16 @@ function Checkout() {
 
                 <div className="headerCheckout row text-bg-secondary d-flex justify-content-end">
                     <div className="col-2">
-                        Tổng số tiền (n sản phẩm)
+
+                        Tổng số tiền ({sumItem} sản phẩm)
                     </div>
                     <div className="col-2">
-                        1111111
+                        {sumAmount}
                     </div>
                 </div>
+            </div>
+            <div className="btn btn-primary">
+                Thanh toán hóa đơn
             </div>
         </div>);
 }

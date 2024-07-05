@@ -4,9 +4,11 @@ import './Cart.css';
 import {useDispatch, useSelector} from "react-redux";
 import {addCart, delCart, setQuantityItem, setCheckoutItem} from "../store/Action";
 import {Link} from "react-router-dom";
+import {useNavigate} from 'react-router-dom';
 
 function Cart() {
     const cart = useSelector((state: any) => state.cart);
+    const navigate = useNavigate(); // sử dụng để điều hướng
     return (
         <div>
             <h1>Đây là trang giỏ hàng</h1>
@@ -85,6 +87,7 @@ function Cart() {
             </div>
             <div className="btn btn-primary"
                  onClick={() => {
+                     navigate('/checkout');
                  }}>Thanh toán những món hàng đã tích chọn trong giỏ
             </div>
         </div>
@@ -110,6 +113,7 @@ export function Product(data: any) {
                            dispatch(setCheckoutItem({id: product.id, isCheckout: event.target.checked}))
                        }
                        }
+                       checked={product.isCheckout}
                 />
             </div>
             <div className="col-4 d-flex gap-2">

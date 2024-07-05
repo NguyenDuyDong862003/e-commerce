@@ -1,12 +1,15 @@
 
 /*****************globals*************/
 body {
-    /*font-family: 'open sans';*/
+    font-family: 'open sans';
     overflow-x: hidden; }
 
 img {
     max-width: 100%; }
-
+.btn btn-primary{
+    text-align: left;
+    margin-bottom: 20px;
+}
 .preview {
     display: -webkit-box;
     display: -webkit-flex;
@@ -44,6 +47,18 @@ img {
 
 .tab-content {
     overflow: hidden; }
+.tab-pane {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tab-pane img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
 .tab-content img {
     width: 100%;
     -webkit-animation-name: opacity;
@@ -162,4 +177,3 @@ img {
         -webkit-transform: scale(1);
         transform: scale(1); } }
 
-/*# sourceMappingURL=style.css.map */

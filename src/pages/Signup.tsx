@@ -10,7 +10,7 @@ function Signup() {
 
     return (
         <div className="">
-            <h1>Đây là trang đăng ký</h1>
+            <h1>Sign up</h1>
             <div className="d-flex flex-column align-items-center gap-3">
                 <div className="col-5">
                     <input className="form-control" id="username" placeholder="Tên"/>

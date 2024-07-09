@@ -8,7 +8,10 @@ export const loadProduct = (data) => {
 export const addCart = (product) => {
     return {
         type: 'cart/add',
-        payload: product
+        payload: {
+            ...product, // Preserve original product data
+            isCheckout: true, // Set isCheckout to true by default
+        }
     }
 }
 export const delCart = (product) => {

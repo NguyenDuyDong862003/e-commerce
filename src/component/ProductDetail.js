@@ -1,8 +1,9 @@
 import "./productDetail.css";
-import {useLoaderData, useNavigate} from "react-router-dom";
+import {useLoaderData} from "react-router-dom";
 import {products} from "../data/ProductData";
 import {useDispatch} from "react-redux";
 import {addCart, setQuantityItem} from "../store/Action";
+import {useState} from "react";
 
 export async function loadProduct({params}) {
     console.log(params);
@@ -12,12 +13,12 @@ export async function loadProduct({params}) {
 export function ProductDetail() {
     const product = useLoaderData();
     const dispatch = useDispatch();
+    const [quantity, setQuantity] = useState(1);
+
     const addToCart = (e) => {
-        const quantity = parseInt(document.getElementById("quantity").value);
         dispatch(addCart(product));
         dispatch(setQuantityItem({id: product.id, quantity:quantity }));
     }
-
     return (
 
         <div className="product-detail">
@@ -34,10 +35,18 @@ export function ProductDetail() {
                 <div className="details">
                     <h2 className="product-name">{product.name} - {product.category}</h2>
 
-                    <p className="price">{product.price} VNĐ</p>
+                    <p className="price">{product.price.toLocaleString()} VNĐ</p>
                     <div className="quantity-selector">
                         <label htmlFor="quantity">Số lượng: </label>
-                        <input type="number" id="quantity" name="quantity" defaultValue="1" min="1"/>
+                        <input type="number" id="quantity" name="quantity" defaultValue="1" min='1'
+                               onChange={event => {
+                                   let inputValue = Number(event.target.value);
+                                   inputValue = Math.max(1, inputValue);
+                                   console.log(inputValue)
+                                   setQuantity(inputValue)
+                                   }}
+
+                        />
                     </div>
 
                     <button onClick ={addToCart} className="btn-add-to-cart">Thêm vào giỏ hàng</button>

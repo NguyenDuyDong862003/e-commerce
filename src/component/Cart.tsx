@@ -46,8 +46,8 @@ function Cart() {
 
                     < Product key={item.id}
                               id={item.id}
-                              title={item.title}
-                              productImageUrl={item.productImageUrl}
+                              title={item.name}
+                              productImageUrl={item.img}
                               price={item.price}
                               quantity={item.quantity}
                               isCheckout={item.isCheckout}
@@ -124,7 +124,7 @@ export function Product(data: any) {
                 </h5>
             </div>
             <div className=" col-2">
-                {product.price}
+                {product.price.toLocaleString()}
             </div>
             <div className="col-2 d-flex gap-1">
                 <div className="btn btn-danger"
@@ -157,7 +157,7 @@ export function Product(data: any) {
                 </div>
             </div>
             <div className="col-2 text-danger">
-                {product.price * product.quantity}
+                {(product.price * product.quantity).toLocaleString()} VNĐ
             </div>
             <div className="col-1">
                 <button className=" col btn btn-danger w-100"

@@ -44,8 +44,8 @@ function Checkout() {
                         return (
                             < OrderDetail key={item.id}
                                           id={item.id}
-                                          title={item.title}
-                                          productImageUrl={item.productImageUrl}
+                                          title={item.name}
+                                          productImageUrl={item.img}
                                           price={item.price}
                                           quantity={item.quantity}
                                           isCheckout={item.isCheckout}
@@ -59,7 +59,7 @@ function Checkout() {
                         Tổng số tiền ({sumItem} sản phẩm)
                     </div>
                     <div className="col-2">
-                        {sumAmount}
+                        {sumAmount.toLocaleString()} VNĐ
                     </div>
                 </div>
             </div>
@@ -87,13 +87,13 @@ export function OrderDetail(data: any) {
                 </h5>
             </div>
             <div className=" col-2">
-                {product.price}
+                {product.price.toLocaleString()} VNĐ
             </div>
             <div className="col-2">
                 {product.quantity}
             </div>
             <div className="col-2 text-danger">
-                {product.price * product.quantity}
+                {(product.price * product.quantity).toLocaleString()} VNĐ
             </div>
         </div>)
         ;

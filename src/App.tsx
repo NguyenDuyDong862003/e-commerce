@@ -10,7 +10,8 @@ import {loadProduct} from "./store/Action";
 import {products} from "./data/ProductData";
 
 // router
-import {Outlet} from "react-router-dom";
+import {Outlet, Route, Routes} from "react-router-dom";
+import Home from "./pages/Home";
 
 function App() {
     const dispatch = useDispatch();
@@ -23,6 +24,9 @@ function App() {
             <Navbar></Navbar>
             <div className="container">
                 <Outlet></Outlet>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                </Routes>
             </div>
         </div>
     );

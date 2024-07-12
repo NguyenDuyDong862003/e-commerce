@@ -20,7 +20,6 @@ export default function ProductList() {
                              submitterAvatarUrl={product.submitterAvatarUrl}
                              color={product.color}
                              isBuying={product.isBuying}
-
                     />
                 ))}
             </div>
@@ -41,6 +40,7 @@ export function Product(data) {
             // dispatch({type: 'cart.add', payload: {product: product}})
             dispatch(addCart(product));
             dispatch(setQuantityItem({id: product.id, quantity: 1}));
+            dispatch(setCheckoutItem({id: product.id, isCheckout: false}));
         }
         setProduct({...product, color: product.color === 'blue' ? 'red' : 'blue', isBuying: !product.isBuying})
     }

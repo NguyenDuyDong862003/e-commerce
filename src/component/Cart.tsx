@@ -58,6 +58,11 @@ function Cart() {
                      navigate('/checkout');
                  }}>Thanh toán những món hàng đã tích chọn trong giỏ
             </div>
+            <div className="btn btn-primary"
+                 onClick={() => {
+                     navigate('/checkout');
+                 }}>Thanh toán những món hàng đã tích chọn trong giỏ
+            </div>
         </div>
     );
 }
@@ -79,7 +84,6 @@ export function Product(data: any) {
                                console.log(event.target.checked);
                                setProduct({ ...product, isCheckout: event.target.checked });
                                dispatch(setCheckoutItem({ id: product.id, isCheckout: event.target.checked }));
-
                        }
                 }
                 />

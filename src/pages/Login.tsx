@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 function Login() {
     return (
         <div className="">
-            <h1>Đây là trang đăng nhập</h1>
+            <h1>Đăng Nhập</h1>
             <div className="d-flex flex-column align-items-center gap-3">
                 <div className="col-5">
                     <input className="form-control" type="email" id="email" placeholder="Email hoặc Tên đăng nhập"/>

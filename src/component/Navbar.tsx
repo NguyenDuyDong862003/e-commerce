@@ -2,17 +2,17 @@ import {useState} from "react";
 import React from "react";
 import './Navbar.css';
 
-import logo from "../img/tai-logo-truong-dai-hoc-nong-lam-tphcm.png";
+import logo from "../img/logo.png";
 import imgCart from "../img/shopping_cart_PNG38.png";
 import {Link} from "react-router-dom";
 
 import {useSelector} from 'react-redux';
 
 const menuItems = [
+    {label: "Home", value: "home"},
     {label: "Shop", value: "list-product"},
     {label: "Category", value: "category"},
-    {label: "Deal", value: "deal"},
-    {label: "Kids", value: "kid"}
+    {label: "About", value: "about"}
 ];
 
 function Navbar() {
@@ -36,7 +36,7 @@ function Navbar() {
                         >
                             {item.label}
                         </Link>
-                        {menuItem === item.value && <hr/>}
+                        {menuItem === item.value}
                     </li>
                 ))}
             </ul>

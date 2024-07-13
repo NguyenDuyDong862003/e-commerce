@@ -1,3 +1,16 @@
+.d-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  overflow: hidden;
+}
 
+.card-body .btn {
+  width: 200px;
+}
+.card-body .btn-danger {
+  background-color: #f55d6b;
+}
 
 /*# sourceMappingURL=ProductList.css.map */

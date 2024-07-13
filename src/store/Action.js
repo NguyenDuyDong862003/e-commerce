@@ -36,3 +36,14 @@ export const setCheckoutItem = (data) => {
         payload: data
     }
 }
+
+export const incrementPage = () => {
+    return {
+        type: 'page/increment',
+    }
+}
+export const decrementPage = () => {
+    return {
+        type: 'page/decrement',
+    }
+}

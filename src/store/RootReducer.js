@@ -1,10 +1,13 @@
+import {getTotalPageProduct} from "../data/FakeServerAPI";
+
 const loadCart = () => {
     console.log(localStorage)
     return JSON.parse(localStorage.getItem('cart')) ?? [];
 }
 const initState = {
     products: [],
-    cart: loadCart()
+    cart: loadCart(),
+    page: 1,
 }
 export const root = (state = initState, action) => {
     switch (action.type) {
@@ -78,13 +81,21 @@ export const root = (state = initState, action) => {
                 cart: [...cart]
             }
         }
-        // case "cart/load": {
-        //     let cart = state.cart;
-        //     return {
-        //         ...state,
-        //         cart: [...cart]
-        //     }
-        // }
+        case "page/increment": {
+            let page = state.page;
+            let totalPage = getTotalPageProduct();
+            return {
+                ...state,
+                page: page < totalPage ? page + 1 : page
+            }
+        }
+        case "page/decrement": {
+            let page = state.page;
+            return {
+                ...state,
+                page: page > 1 ? page - 1 : page
+            }
+        }
         default:
             return state;
     }

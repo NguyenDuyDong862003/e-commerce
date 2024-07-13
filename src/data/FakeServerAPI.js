@@ -1,8 +1,8 @@
 import {products} from "./ProductData";
 
-const MAX_PRODUCT_PER_PAGE = 3
+const MAX_PRODUCT_PER_PAGE = 4
 
-function getTotalPageProduct() {
+export function getTotalPageProduct() {
     let sizeProduct = products.length
     if (sizeProduct === 0) {
         return 1;
@@ -22,8 +22,8 @@ export default function getDataAtPage(page) {
     let indexStart = (page - 1) * MAX_PRODUCT_PER_PAGE;
     let indexEnd = page * MAX_PRODUCT_PER_PAGE;
 
-    if (products.size() < indexEnd)
-        indexEnd = products.size();
+    if (products.length < indexEnd)
+        indexEnd = products.length;
 
     for (let i = indexStart; i < indexEnd; i++) {
         result.push(products[i]);

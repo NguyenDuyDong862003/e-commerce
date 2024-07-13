@@ -3,12 +3,15 @@
   .headerCheckout {
     align-items: center;
     height: 60px;
+    display:flex;
   }
 
   .itemCheckout {
     align-items: center;
-    height: 100px;
-
+    height: fit-content;
+    .col-3 h5 {
+      flex: 1;
+    }
     img {
       width: 80px;
       height: 80px;

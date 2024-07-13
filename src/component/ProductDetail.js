@@ -1,8 +1,8 @@
 import "./productDetail.css";
 import {useLoaderData} from "react-router-dom";
 import {products} from "../data/ProductData";
-import {useDispatch} from "react-redux";
-import {addCart, setQuantityItem} from "../store/Action";
+import {useDispatch, useSelector} from "react-redux";
+import {addCart, delCart, setQuantityItem} from "../store/Action";
 import {useState} from "react";
 
 export async function loadProduct({params}) {
@@ -12,12 +12,21 @@ export async function loadProduct({params}) {
 
 export function ProductDetail() {
     const product = useLoaderData();
+    console.log("Chi tiết SP");
+    console.log(product);
     const dispatch = useDispatch();
     const [quantity, setQuantity] = useState(1);
 
+    const cart = useSelector(state => state.cart);
+    const isInCart = cart.some(item => item.id === product.id);
+
     const addToCart = (e) => {
-        dispatch(addCart(product));
-        dispatch(setQuantityItem({id: product.id, quantity:quantity }));
+        if (isInCart === true) {
+            dispatch(delCart(product));
+        } else {
+            dispatch(addCart(product));
+            dispatch(setQuantityItem({id: product.id, quantity: quantity}));
+        }
     }
     return (
 
@@ -38,25 +47,29 @@ export function ProductDetail() {
                     <p className="price">{product.price.toLocaleString()} VNĐ</p>
                     <div className="quantity-selector">
                         <label htmlFor="quantity">Số lượng: </label>
-                        <input type="number" id="quantity" name="quantity" defaultValue="1" min='1'
+                        <input type="number" id="quantity" name="quantity"
                                onChange={event => {
                                    let inputValue = Number(event.target.value);
                                    inputValue = Math.max(1, inputValue);
                                    console.log(inputValue)
                                    setQuantity(inputValue)
-                                   }}
-
+                               }}
+                               value={quantity}
                         />
                     </div>
 
-                    <button onClick ={addToCart} className="btn-add-to-cart">Thêm vào giỏ hàng</button>
+                    <button onClick={addToCart}
+                            className={"btn-add-to-cart "}
+                    > {isInCart ? "Xoá khỏi giỏ hàng" : "Thêm vào giỏ hàng"}</button>
 
                     <div className="product-info">
-                        <p>Mô tả: {product.des}</p>
+                        <p>Mô tả: {product.des}
+                        </p>
                     </div>
 
                 </div>
             </div>
         </div>
-    );
+    )
+        ;
 }

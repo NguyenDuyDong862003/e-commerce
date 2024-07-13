@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import './Cart.css';
 
 import {useDispatch, useSelector} from "react-redux";
-import {delCart, setCheckoutItem, setQuantityItem} from "../store/Action";
+import {delCart, loadProduct, setCheckoutItem, setQuantityItem} from "../store/Action";
 import {useNavigate} from "react-router-dom";
 
 function Cart() {
@@ -58,11 +58,6 @@ function Cart() {
                      navigate('/checkout');
                  }}>Thanh toán những món hàng đã tích chọn trong giỏ
             </div>
-            <div className="btn btn-primary"
-                 onClick={() => {
-                     navigate('/checkout');
-                 }}>Thanh toán những món hàng đã tích chọn trong giỏ
-            </div>
         </div>
     );
 }
@@ -81,11 +76,11 @@ export function Product(data: any) {
             <div className="col-1">
                 <input className="form-check-input text-bg-danger" type="checkbox" checked={product.isCheckout}
                        onChange={(event) => {
-                               console.log(event.target.checked);
-                               setProduct({ ...product, isCheckout: event.target.checked });
-                               dispatch(setCheckoutItem({ id: product.id, isCheckout: event.target.checked }));
+                           console.log(event.target.checked);
+                           setProduct({...product, isCheckout: event.target.checked});
+                           dispatch(setCheckoutItem({id: product.id, isCheckout: event.target.checked}));
                        }
-                }
+                       }
                 />
             </div>
             <div className="col-4 d-flex gap-2">

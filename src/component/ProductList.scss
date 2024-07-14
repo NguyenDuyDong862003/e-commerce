@@ -1,17 +1,47 @@
 .d-flex{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 200px;
-  overflow: hidden;
-}
-.card-body {
-  .btn{
-    width: 200px;
-  }
+  margin: 5px;
 
-  .btn-danger {
-    background-color: #f55d6b;
+}
+.btn-page{
+  background-color: #87c59b;
+  color: #fff;
+  border-color:#87c59b;
+  border-radius: 6px;
+  width: 40px;
+  height: 40px;
+}
+.btn-page:hover{
+  border-color:#f55d6b;
+  background-color:#cc574b;
+}
+.btn-page:disabled {
+  opacity: 0.4;
+}
+.page{
+  color: #f55d6b;
+  font-weight: bold;
+  margin: 10px;
+}
+.card{
+  width:250px;
+  .d-flex{
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    overflow: hidden;
+  }
+  .card-body {
+    .btn{
+      width: 200px;
+      border-radius: 6px;
+    }
+    .btn-danger {
+      background-color: #f55d6b;
+    }
   }
 }
+
+
+
+
 

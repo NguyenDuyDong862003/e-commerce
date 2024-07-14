@@ -32,12 +32,12 @@ export function ProductList2(data: any) {
                     }
                     }
                     disabled={page === 1}
-                    className="btn btn-secondary"
+                    className="btn-page"
                 >
-                    Previous Page
+                    &lt;
                 </button>
-                <span className="mx-3">
-                    Page {page} of {totalPage}
+                <span className="page">
+                    Trang:{page}/{totalPage}
                 </span>
                 <button
                     onClick={() => {
@@ -45,9 +45,9 @@ export function ProductList2(data: any) {
                     }
                     }
                     disabled={page === totalPage}
-                    className="btn btn-secondary"
+                    className="btn-page"
                 >
-                    Next Page
+                    &gt;
                 </button>
             </div>
 
@@ -92,4 +92,3 @@ export function Product(data: any) {
         </div>
     );
 }
-

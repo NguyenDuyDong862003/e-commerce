@@ -1,10 +1,14 @@
 .container .headerCheckout {
   align-items: center;
   height: 60px;
+  display: flex;
 }
 .container .itemCheckout {
   align-items: center;
-  height: 100px;
+  height: fit-content;
+}
+.container .itemCheckout .col-3 h5 {
+  flex: 1;
 }
 .container .itemCheckout img {
   width: 80px;

@@ -10,7 +10,7 @@ export function getTotalPageProduct() {
     return Math.ceil(sizeProduct * 1.0 / MAX_PRODUCT_PER_PAGE);
 }
 
-export function getTotalPageOfList(list) {
+export function getTotalPageOfList(list: any) {
     let sizeProduct = list.length
     if (sizeProduct === 0) {
         return 1;
@@ -18,7 +18,7 @@ export function getTotalPageOfList(list) {
     return Math.ceil(sizeProduct * 1.0 / MAX_PRODUCT_PER_PAGE);
 }
 
-export default function getDataAtPage(page) {
+export function getDataAtPage(page: number) {
     let result = [];
 
     let totalPage = getTotalPageProduct();
@@ -40,10 +40,12 @@ export default function getDataAtPage(page) {
     return result;
 }
 
-export default function getDataAtPageOfList(list, page) {
+export default function getDataAtPageOfList(list: any, page: number) {
+
     let result = [];
 
     let totalPage = getTotalPageOfList(list);
+
     if (page <= 0)
         page = totalPage;
     if (page > totalPage)
@@ -59,5 +61,25 @@ export default function getDataAtPageOfList(list, page) {
         result.push(list[i]);
     }
 
+    return result;
+}
+
+export function getCategories(list: any): string[] {
+    let categoriesSet: Set<string> = new Set();
+
+    list.forEach((item: any) => {
+        categoriesSet.add(item.category);
+    });
+
+    return Array.from(categoriesSet);
+}
+
+export function getListProductByCategory(category: string) {
+    let result: any = [];
+
+    products.map(p => {
+        if (p.category == category)
+            result.push(p);
+    })
     return result;
 }

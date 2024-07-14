@@ -10,20 +10,13 @@ function Cart() {
     const navigate = useNavigate(); // sử dụng để điều hướng
     return (
         <div>
-            <h1>Đây là trang giỏ hàng</h1>
+            <h1>Giỏ hàng</h1>
             <div className="container">
                 <div className="headerCart row text-bg-secondary">
                     <div className="col-1">
-                        {/*<input className="form-check-input text-bg-danger " type="checkbox"*/}
-                        {/*       onChange={*/}
-                        {/*           (event) => {*/}
-                        {/*               // tích chọn tất cả, hoặc hủy chọn tất cả*/}
-                        {/*               // bổ sung sau cũng được*/}
-                        {/*           }*/}
-                        {/*       }*/}
-                        {/*/>*/}
+
                     </div>
-                    <div className="col-4 d-flex">
+                    <div className="col-3">
                         Sản phẩm
                     </div>
                     <div className="col-2">
@@ -35,11 +28,10 @@ function Cart() {
                     <div className="col-2">
                         Số tiền
                     </div>
-                    <div className="col-1">
+                    <div className="col-2">
                         Xóa khỏi giỏ
                     </div>
                 </div>
-                {/*<div className="row border border-primary"></div>*/}
 
                 {cart.map((item: any) => (
 
@@ -56,7 +48,7 @@ function Cart() {
             <div className="btn btn-primary"
                  onClick={() => {
                      navigate('/checkout');
-                 }}>Thanh toán những món hàng đã tích chọn trong giỏ
+                 }}>Thanh toán
             </div>
         </div>
     );
@@ -83,17 +75,16 @@ export function Product(data: any) {
                        }
                 />
             </div>
-            <div className="col-4 d-flex gap-2">
+            <div className="col-3 d-flex gap-2">
                 <img className="col-1" src={product.productImageUrl}/>
                 <h5>
-
                     {product.title}
                 </h5>
             </div>
             <div className=" col-2">
                 {product.price.toLocaleString()}
             </div>
-            <div className="col-2 d-flex gap-1">
+            <div className="col-2 d-flex">
                 <div className="btn btn-danger"
                      onClick={() => {
                          if (product.quantity > 1) {
@@ -126,7 +117,7 @@ export function Product(data: any) {
             <div className="col-2 text-danger">
                 {(product.price * product.quantity).toLocaleString()} VNĐ
             </div>
-            <div className="col-1">
+            <div className="col-2">
                 <button className=" col btn btn-danger w-100"
                         onClick={() => {
                             dispatch(delCart(product))

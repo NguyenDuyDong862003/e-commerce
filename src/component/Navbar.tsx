@@ -9,7 +9,7 @@ import {Link} from "react-router-dom";
 import {useSelector} from 'react-redux';
 
 const menuItems = [
-    {label: "Home", value: "list-product"},//home
+    {label: "Home", value: ""},
     {label: "Shop", value: "list-product"},
     {label: "Category", value: "category"},
     {label: "About", value: "about"}

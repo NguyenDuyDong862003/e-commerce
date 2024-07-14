@@ -4,24 +4,29 @@
   position: relative;
   background-size: cover;
   background: url("../img/home_bg.png") center center no-repeat;
+  display: flex;
 }
-
-.header {
+.home .header {
   position: absolute;
   bottom: 20px;
   left: 20px;
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
 }
-.header h2 {
+.home .header h2 {
   width: 60%;
   color: #87c59b;
   font-size: 40px;
 }
-.header p {
+.home .header p {
   width: 60%;
   color: #ffffff;
   font-size: 20px;
+}
+.home .products {
+  padding: 20px;
+  margin-top: 450px;
 }
 
 /*# sourceMappingURL=Home.css.map */

@@ -1,5 +1,6 @@
 import React from "react";
 import './Home.css';
+import {Category} from "../component/Category";
 
 const Home: React.FC = () => {
     return (
@@ -10,6 +11,9 @@ const Home: React.FC = () => {
                     nhất. Chọn từ thực đơn đa dạng với nhiều món ăn phong phú, từ truyền thống đến hiện đại, đảm bảo làm
                     hài lòng mọi khẩu vị. Đặt hàng ngay hôm nay và trải nghiệm dịch vụ giao hàng tuyệt vời của chúng
                     tôi!</p>
+            </div>
+            <div className='products'>
+                <Category/>
             </div>
         </div>
     );

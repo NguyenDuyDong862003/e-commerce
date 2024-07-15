@@ -61,9 +61,14 @@ export function ProductDetail() {
                     <button onClick={addToCart}
                             className={"btn-add-to-cart "}
                     > {isInCart ? "Xoá khỏi giỏ hàng" : "Thêm vào giỏ hàng"}</button>
-
                     <div className="product-info">
-                        <p>Mô tả: {product.des}</p>
+                        <p>Mô tả: {product.des.split('\n').map((line, index) => (
+                            <span key={index}>
+                                    {line}
+                                <br/>
+                            </span>
+                        ))}
+                        </p>
                     </div>
                 </div>
             </div>

@@ -25,7 +25,7 @@ function Checkout() {
             <h1>Thanh toán</h1>
             <div className="container">
                 <div className="headerCheckout row text-bg-secondary">
-                    <div className="col-3">
+                    <div className="col-5">
                         Sản phẩm
                     </div>
                     <div className="col-2">
@@ -54,10 +54,10 @@ function Checkout() {
                 })}
 
                 <div className="headerCheckout row text-bg-secondary d-flex justify-content-end">
-                    <div className="col-3">
-                        Tổng số tiền ({sumItem} sản phẩm):
-                    </div>
                     <div className="col-2">
+                        Tổng số tiền: <br/> ({sumItem} sản phẩm)
+                    </div>
+                    <div className="col-3">
                         {sumAmount.toLocaleString()} VNĐ
                     </div>
                 </div>
@@ -65,7 +65,8 @@ function Checkout() {
             <div className="btn btn-primary">
                 Thanh toán hóa đơn
             </div>
-        </div>);
+        </div>
+    );
 }
 
 export default Checkout;
@@ -79,7 +80,7 @@ export function OrderDetail(data: any) {
 
     return (
         <div className="itemCheckout row text-bg-light border border-danger border-to">
-            <div className="col-3 d-flex gap-2">
+            <div className="col-5 d-flex gap-2">
                 <img className="col-1" src={product.productImageUrl}/>
                 <h5>
                     {product.title}

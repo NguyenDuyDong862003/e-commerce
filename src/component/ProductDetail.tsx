@@ -1,11 +1,11 @@
 import "./productDetail.css";
-import { useLoaderData } from "react-router-dom";
-import { products } from "../data/ProductData";
+import {useLoaderData} from "react-router-dom";
+import {products} from "../data/ProductData";
 import {useDispatch, useSelector} from "react-redux";
 import {addCart, delCart, setQuantityItem} from "../store/Action";
-import { useState } from "react";
+import {useState} from "react";
 
-export async function loadProduct({ params }: { params: { id: string } }) {
+export async function loadProduct({params}: { params: { id: string } }) {
     console.log(params);
     return products.find((product) => product.id === Number(params.id));
 }
@@ -14,7 +14,7 @@ export function ProductDetail() {
     const product = useLoaderData() as typeof products[0];
     const dispatch = useDispatch();
     const [quantity, setQuantity] = useState<number>(1);
-    const cart = useSelector((state:any) => state.cart);
+    const cart = useSelector((state: any) => state.cart);
     const isInCart = cart.some((item: { id: number; }) => item.id === product.id);
     const addToCart = (e: React.MouseEvent<HTMLButtonElement>) => {
         if (isInCart === true) {
@@ -28,11 +28,11 @@ export function ProductDetail() {
     return (
         <div className="product-detail">
             <div className="left-column">
-                <img src={product.img} className="large-image" alt="Product" />
+                <img src={product.img} className="large-image" alt="Product"/>
                 <div className="thumbnail-images">
-                    <img src={product.img} alt="Thumbnail 1" />
-                    <img src={product.img} alt="Thumbnail 2" />
-                    <img src={product.img} alt="Thumbnail 3" />
+                    <img src={product.img} alt="Thumbnail 1"/>
+                    <img src={product.img} alt="Thumbnail 2"/>
+                    <img src={product.img} alt="Thumbnail 3"/>
                 </div>
             </div>
 
@@ -63,7 +63,14 @@ export function ProductDetail() {
                     > {isInCart ? "Xoá khỏi giỏ hàng" : "Thêm vào giỏ hàng"}</button>
 
                     <div className="product-info">
-                        <p>Mô tả: {product.des}</p>
+                        {/*<p>Mô tả: {product.des}</p>*/}
+                        <p>Mô tả: {product.des.split('\n').map((line, index) => (
+                            <span key={index}>
+                                    {line}
+                                <br/>
+                            </span>
+                        ))}
+                        </p>
                     </div>
                 </div>
             </div>

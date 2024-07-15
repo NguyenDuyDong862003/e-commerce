@@ -16,7 +16,7 @@ function Cart() {
                     <div className="col-1">
 
                     </div>
-                    <div className="col-3">
+                    <div className="col-3 d-flex">
                         Sản phẩm
                     </div>
                     <div className="col-2">
@@ -28,7 +28,7 @@ function Cart() {
                     <div className="col-2">
                         Số tiền
                     </div>
-                    <div className="col-2">
+                    <div className="col-1">
                         Xóa khỏi giỏ
                     </div>
                 </div>
@@ -84,7 +84,7 @@ export function Product(data: any) {
             <div className=" col-2">
                 {product.price.toLocaleString()}
             </div>
-            <div className="col-2 d-flex">
+            <div className="col-2 d-flex gap-1">
                 <div className="btn btn-danger"
                      onClick={() => {
                          if (product.quantity > 1) {
@@ -117,7 +117,7 @@ export function Product(data: any) {
             <div className="col-2 text-danger">
                 {(product.price * product.quantity).toLocaleString()} VNĐ
             </div>
-            <div className="col-2">
+            <div className="col-1">
                 <button className=" col btn btn-danger w-100"
                         onClick={() => {
                             dispatch(delCart(product))

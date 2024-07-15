@@ -3,7 +3,7 @@
   .headerCart {
     color: #57b959;
     font-weight: bold;
-    display:flex;
+    display: flex;
     height: 50px;
     align-items: center;
   }
@@ -11,13 +11,15 @@
   .itemCart {
     align-items: center;
     height: fit-content;
+
     .col-3 h5 {
       flex: 1;
     }
+
     img {
       align-items: start;
-      width: 100px;
-      height: 100px;
+      width: 80px;
+      height: 80px;
     }
   }
 }

@@ -10,6 +10,8 @@ import Checkout from "../component/Checkout";
 import {Category} from "../component/Category";
 import {products} from "../data/ProductData";
 import {Shop} from "../component/Shop";
+import {SearchBar} from "../component/SearchBar";
+import {SearchResult} from "../component/SearchResult";
 
 
 export const router = createBrowserRouter([
@@ -46,6 +48,10 @@ export const router = createBrowserRouter([
             }, {
                 path: 'signup',
                 element: <Signup/>,
+                errorElement: <Error/>,
+            }, {
+                path: 'search/:keySearch',
+                element: <SearchResult/>,
                 errorElement: <Error/>,
             }
         ]

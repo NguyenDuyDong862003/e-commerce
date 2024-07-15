@@ -7,6 +7,7 @@ import imgCart from "../img/shopping_cart_PNG38.png";
 import {Link} from "react-router-dom";
 
 import {useSelector} from 'react-redux';
+import {SearchBar} from "./SearchBar";
 
 const menuItems = [
     {label: "Home", value: ""},
@@ -39,6 +40,8 @@ function Navbar() {
                     </li>
                 ))}
             </ul>
+
+            <SearchBar/>
 
             <div className="navLoginCart">
                 <Link to="/login">

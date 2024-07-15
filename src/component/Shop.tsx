@@ -1,6 +1,5 @@
 import {useState} from "react";
-import getDataAtPageOfList, {getCategories, getListProductByCategory, getTotalPageOfList} from "../data/FakeServerAPI";
-import {Product, ProductList2} from "./ProductList";
+import {getCategories} from "../data/FakeServerAPI";
 import {products} from "../data/ProductData";
 import {Category2} from "./Category";
 

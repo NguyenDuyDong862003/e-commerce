@@ -86,3 +86,18 @@ export function getListProductByCategory(category: string) {
     })
     return result;
 }
+
+export function getListProductByName(name: string | undefined) {
+    let result: any = [];
+    if (name == undefined)
+        return result;
+    if (name == "")
+        // return products;
+        return result;
+
+    products.map(p => {
+        if (p.name.toLowerCase().includes(name.toLowerCase()))
+            result.push(p);
+    })
+    return result;
+}

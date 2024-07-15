@@ -1,7 +1,5 @@
 import {useDispatch, useSelector} from "react-redux";
 import React, {useState} from "react";
-import Cart, {Product} from "./Cart";
-import {delCart, setCheckoutItem, setQuantityItem} from "../store/Action";
 import './Checkout.css';
 
 function Checkout() {
@@ -24,7 +22,7 @@ function Checkout() {
         <div>
             <h1>Thanh toán</h1>
             <div className="container">
-                <div className="headerCheckout row text-bg-secondary">
+                <div className="headerCheckout row text-bg-success">
                     <div className="col-3">
                         Sản phẩm
                     </div>
@@ -52,8 +50,7 @@ function Checkout() {
                             />);
                     }
                 })}
-
-                <div className="headerCheckout row text-bg-secondary d-flex justify-content-end">
+                <div className="headerCheckout row text-bg-danger gap-2 d-flex">
                     <div className="col-3">
                         Tổng số tiền ({sumItem} sản phẩm):
                     </div>
@@ -80,7 +77,7 @@ export function OrderDetail(data: any) {
     return (
         <div className="itemCheckout row text-bg-light border border-danger border-to">
             <div className="col-3 d-flex gap-2">
-                <img className="col-1" src={product.productImageUrl}/>
+            <img className="col-1" src={product.productImageUrl}/>
                 <h5>
                     {product.title}
                 </h5>

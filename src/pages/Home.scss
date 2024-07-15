@@ -1,12 +1,13 @@
-.home{
-  height: 30vw;
+.home {
+  height: 400px;
   margin: 30px auto;
   position: relative;
   background-size: cover;
   background: url('../img/home_bg.png') center center no-repeat;
-  display:flex;
-
+  display: flex;
+}
   .header{
+    height: 220px;
     position: absolute;
     bottom: 20px;
     left: 20px;
@@ -28,5 +29,5 @@
     padding: 20px;
     margin-top: 450px;
   }
-}
+
 

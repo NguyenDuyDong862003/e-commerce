@@ -1,12 +1,14 @@
 .home {
-  height: 30vw;
+  height: 400px;
   margin: 30px auto;
   position: relative;
   background-size: cover;
   background: url("../img/home_bg.png") center center no-repeat;
   display: flex;
 }
-.home .header {
+
+.header {
+  height: 220px;
   position: absolute;
   bottom: 20px;
   left: 20px;
@@ -14,17 +16,18 @@
   background-color: rgba(0, 0, 0, 0.5);
   margin-bottom: 20px;
 }
-.home .header h2 {
+.header h2 {
   width: 60%;
   color: #87c59b;
   font-size: 40px;
 }
-.home .header p {
+.header p {
   width: 60%;
   color: #ffffff;
   font-size: 20px;
 }
-.home .products {
+
+.products {
   padding: 20px;
   margin-top: 450px;
 }

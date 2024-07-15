@@ -4,10 +4,11 @@ import {
     getListProductByCategory,
 } from "../data/FakeServerAPI";
 import {products} from "../data/ProductData";
-import {ProductList2} from "./ProductList";
+import {ProductList} from "./ProductList";
 
 export function Category() {
     const getAllCategories = getCategories(products);
+    const perPage:number = 4;
     return (
         <div>
             <div className="row">
@@ -16,11 +17,20 @@ export function Category() {
                     return (
                         <div key={category} className="category-section">
                             <h2>{category}</h2>
-                            <ProductList2 listProduct={products}/>
+                            <ProductList listProduct={products} perPage={perPage}/>
                         </div>
                     );
                 })}
             </div>
+        </div>
+    );
+}
+export function OneCategory(data: any) {
+    const products = getListProductByCategory(data.category);
+    const perPage:number = 8;
+    return (
+        <div className="row">
+            <ProductList listProduct={products} perPage={perPage}/>
         </div>
     );
 }

@@ -6,11 +6,28 @@ import "./ProductList.css";
 import {getTotalPageOfList} from "../data/FakeServerAPI";
 import getDataAtPageOfList from "../data/FakeServerAPI";
 
-export function ProductList2(data: any) {
+interface ProductProps {
+    listProduct: any[]; // Kiểu của listProduct là một mảng các đối tượng
+    perPage: number; // Kiểu của perPage là số nguyên
+}
+export function ProductList(props: ProductProps) {
+    const { listProduct, perPage } = props;
     const [page, setPage] = useState(1);
-
-    const listProductAtPage = getDataAtPageOfList(data.listProduct, page);
-    const totalPage = getTotalPageOfList(data.listProduct);
+    const listProductAtPage = getDataAtPageOfList(listProduct, page, perPage);
+    const totalPage = Number(getTotalPageOfList(listProduct, perPage));
+    console.log('perPage in ProductList:', perPage);
+    if (typeof perPage !== 'number') {
+        throw new Error('perPage must be a number');
+    }
+    console.log('Total pages:', totalPage);
+    if (page > totalPage) {
+        setPage(1);
+    }
+    console.log("render lại page " + page);
+    if (!Array.isArray(listProduct)) {
+        console.error("listProduct is not an array:", listProduct);
+        return <div>Invalid product list</div>;
+    }
     return (
         <div>
             <div className="row">
@@ -50,7 +67,6 @@ export function ProductList2(data: any) {
                     &gt;
                 </button>
             </div>
-
         </div>
     );
 }

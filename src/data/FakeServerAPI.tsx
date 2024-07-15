@@ -75,6 +75,9 @@ export function getCategories(list: any): string[] {
 }
 
 export function getListProductByCategory(category: string) {
+    if (category == "All")
+        return products;
+
     let result: any = [];
 
     products.map(p => {

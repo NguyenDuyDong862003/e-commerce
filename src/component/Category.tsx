@@ -24,3 +24,14 @@ export function Category() {
         </div>
     );
 }
+
+// trả về 1 component là phân trang từ 1 category
+export function Category2(data: any) {
+    const products = getListProductByCategory(data.category);
+    return (
+        <div className="row">
+            <h2>{data.category}</h2>
+            <ProductList2 listProduct={products}/>
+        </div>
+    );
+}

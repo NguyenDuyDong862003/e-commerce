@@ -11,6 +11,13 @@ export function ProductList2(data: any) {
 
     const listProductAtPage = getDataAtPageOfList(data.listProduct, page);
     const totalPage = getTotalPageOfList(data.listProduct);
+
+    if (page > totalPage) {
+        setPage(1);
+    }
+
+    console.log("render lại page " + page);
+
     return (
         <div>
             <div className="row">

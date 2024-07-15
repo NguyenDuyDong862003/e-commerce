@@ -9,6 +9,7 @@ import Cart from "../component/Cart";
 import Checkout from "../component/Checkout";
 import {Category} from "../component/Category";
 import {products} from "../data/ProductData";
+import {Shop} from "../component/Shop";
 
 
 export const router = createBrowserRouter([
@@ -19,7 +20,8 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: 'list-product',
-                element: <ProductList2 listProduct={products}/>
+                // element: <ProductList2 listProduct={products}/>
+                element: <Shop/>
             }, {
                 path: 'product/:id',
                 element: <ProductDetail/>,

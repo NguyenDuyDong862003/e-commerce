@@ -9,6 +9,7 @@ import Checkout from "../component/Checkout";
 import {Category} from "../component/Category";
 import {Shop} from "../pages/Shop";
 import {SearchResult} from "../component/SearchResult";
+import About from "../pages/About";
 
 export const router = createBrowserRouter([
     {
@@ -47,6 +48,10 @@ export const router = createBrowserRouter([
             }, {
                 path: 'search/:keySearch',
                 element: <SearchResult/>,
+                errorElement: <Error/>,
+            }, {
+                path: 'about',
+                element: <About/>,
                 errorElement: <Error/>,
             }
         ]

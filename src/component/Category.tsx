@@ -27,7 +27,7 @@ export function Category() {
 }
 export function OneCategory(data: any) {
     const products = getListProductByCategory(data.category);
-    const perPage:number = 8;
+    const perPage:number = 10;
     return (
         <div className="row">
             <ProductList listProduct={products} perPage={perPage}/>

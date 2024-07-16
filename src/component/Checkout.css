@@ -15,4 +15,8 @@
   height: 80px;
 }
 
+.alert .alert-success {
+  text-align: left;
+}
+
 /*# sourceMappingURL=Checkout.css.map */

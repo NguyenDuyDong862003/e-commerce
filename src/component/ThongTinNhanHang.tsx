@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 export function ThongTinNhanHang(data: any) {
     return (
         <div className="d-flex justify-content-center gap-3">
-            <div className="col-6">
+            <div className="col-4">
                 <h3>Thông tin thanh toán</h3>
                 <div className="row d-flex flex-column align-items-center gap-3">
                     <div className="">
@@ -47,12 +47,6 @@ export function ThongTinNhanHang(data: any) {
                             Thanh toán khi nhận hàng (COD)
                         </label>
                     </div>
-                    {/*<div className="form-check d-flex gap-3">*/}
-                    {/*    <input className="form-check-input" type="radio" name="method" id="radio2"/>*/}
-                    {/*    <label className="form-check-label" htmlFor="radio2">*/}
-                    {/*        Khác*/}
-                    {/*    </label>*/}
-                    {/*</div>*/}
                 </div>
             </div>
         </div>

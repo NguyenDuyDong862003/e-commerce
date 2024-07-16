@@ -10,7 +10,6 @@ import {Category} from "../component/Category";
 import {Shop} from "../pages/Shop";
 import {SearchResult} from "../component/SearchResult";
 
-
 export const router = createBrowserRouter([
     {
         path: '/',

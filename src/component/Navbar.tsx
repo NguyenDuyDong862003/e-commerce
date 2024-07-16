@@ -40,9 +40,7 @@ function Navbar() {
                     </li>
                 ))}
             </ul>
-
             <SearchBar/>
-
             <div className="navLoginCart">
                 <Link to="/login">
                     <button>Login</button>

@@ -20,8 +20,7 @@ export function Shop() {
                         <button
                             key={index}
                             className={`category-button ${filterCategory === category ? 'active' : ''}`}
-                            onClick={() => setFilterCategory(category)}
-                        >
+                            onClick={() => setFilterCategory(category)}>
                             {category}
                         </button>
                     );

@@ -1,12 +1,19 @@
 .container .headerCart {
+  color: #57b959;
+  font-weight: bold;
+  display: flex;
+  height: 50px;
   align-items: center;
-  height: 100px;
 }
 .container .itemCart {
   align-items: center;
-  height: 150px;
+  height: fit-content;
+}
+.container .itemCart .col-3 h5 {
+  flex: 1;
 }
 .container .itemCart img {
+  align-items: start;
   width: 80px;
   height: 80px;
 }

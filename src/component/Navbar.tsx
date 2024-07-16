@@ -7,11 +7,11 @@ import imgCart from "../img/shopping_cart_PNG38.png";
 import {Link} from "react-router-dom";
 
 import {useSelector} from 'react-redux';
+import {SearchBar} from "./SearchBar";
 
 const menuItems = [
-    {label: "Home", value: "list-product"},//home
+    {label: "Home", value: ""},
     {label: "Shop", value: "list-product"},
-    {label: "Category", value: "category"},
     {label: "About", value: "about"}
 ];
 
@@ -23,14 +23,17 @@ function Navbar() {
     return (
         <div className="navbar">
             <div className="navLogo">
-                <img src={logo} alt="Ảnh logo"/>
-                <p>Front end</p>
+                <Link to="/" className="logo-link">
+                    <img src={logo} alt="Ảnh logo"/>
+                </Link>
+                <h3>DonLunch</h3>
             </div>
 
             <ul className="navMenu">
                 {menuItems.map((item) => (
                     <li key={item.value}
                         onClick={() => setMenuItem(item.value)}
+                        className={menuItem === item.value ? 'active' : ''}
                     >
                         <Link to={'/' + item.value}
                         >
@@ -40,7 +43,7 @@ function Navbar() {
                     </li>
                 ))}
             </ul>
-
+            <SearchBar/>
             <div className="navLoginCart">
                 <Link to="/login">
                     <button>Login</button>

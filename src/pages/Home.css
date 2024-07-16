@@ -1,0 +1,35 @@
+.home {
+  height: 400px;
+  margin: 30px auto;
+  position: relative;
+  background-size: cover;
+  background: url("../img/home_bg.png") center center no-repeat;
+  display: flex;
+}
+
+.header {
+  height: 220px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+}
+.header h2 {
+  width: 70%;
+  color: #87c59b;
+  font-size: 40px;
+}
+.header p {
+  width: 80%;
+  color: #ffffff;
+  font-size: 20px;
+}
+
+.products {
+  padding: 20px;
+  margin-top: 450px;
+}
+
+/*# sourceMappingURL=Home.css.map */

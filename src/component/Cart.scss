@@ -1,15 +1,23 @@
 .container {
 
   .headerCart {
+    color: #57b959;
+    font-weight: bold;
+    display: flex;
+    height: 50px;
     align-items: center;
-    height: 100px;
   }
 
   .itemCart {
     align-items: center;
-    height: 150px;
+    height: fit-content;
+
+    .col-3 h5 {
+      flex: 1;
+    }
 
     img {
+      align-items: start;
       width: 80px;
       height: 80px;
     }

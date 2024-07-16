@@ -1,3 +1,46 @@
+.d-flex {
+  margin: 5px;
+}
 
+.btn-page {
+  background-color: #87c59b;
+  color: #fff;
+  border-color: #87c59b;
+  border-radius: 6px;
+  width: 40px;
+  height: 40px;
+}
+
+.btn-page:hover {
+  border-color: #f55d6b;
+  background-color: #cc574b;
+}
+
+.btn-page:disabled {
+  opacity: 0.4;
+}
+
+.page {
+  color: #f55d6b;
+  font-weight: bold;
+  margin: 10px;
+}
+
+.card {
+  width: 250px;
+}
+.card .d-flex {
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  overflow: hidden;
+}
+.card .card-body .btn {
+  width: 200px;
+  border-radius: 6px;
+}
+.card .card-body .btn-danger {
+  background-color: #f55d6b;
+}
 
 /*# sourceMappingURL=ProductList.css.map */

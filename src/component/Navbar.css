@@ -29,6 +29,7 @@
   color: inherit;
 }
 .navbar .navMenu li:hover a {
+  font-weight: bold;
   color: #ee404f;
 }
 .navbar .navMenu li.active a {

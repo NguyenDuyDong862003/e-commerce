@@ -23,14 +23,17 @@ function Navbar() {
     return (
         <div className="navbar">
             <div className="navLogo">
-                <img src={logo} alt="Ảnh logo"/>
-                <p>Front end</p>
+                <Link to="/" className="logo-link">
+                    <img src={logo} alt="Ảnh logo"/>
+                </Link>
+                <h3>DonLunch</h3>
             </div>
 
             <ul className="navMenu">
                 {menuItems.map((item) => (
                     <li key={item.value}
                         onClick={() => setMenuItem(item.value)}
+                        className={menuItem === item.value ? 'active' : ''}
                     >
                         <Link to={'/' + item.value}
                         >

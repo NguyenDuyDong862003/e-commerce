@@ -1,6 +1,8 @@
 import {useDispatch, useSelector} from "react-redux";
 import React, {useState} from "react";
 import './Checkout.css';
+import {ThongTinNhanHang} from "./ThongTinNhanHang";
+import {ThongBaoDatHangThanhCong} from "./ThongBaoDatHangThanhCong";
 
 function Checkout() {
     const cart = useSelector((state: any) => state.cart);
@@ -17,6 +19,16 @@ function Checkout() {
         }
         return sum;
     }, 0);
+
+    const [dataInfor, setDataInfor] = useState({
+        name: "",
+        sdt: "",
+        address: "",
+        note: "",
+        // method: "",
+    });
+
+    const [isDatHang, setDatHang] = useState(false);
 
     return (
         <div>
@@ -59,9 +71,22 @@ function Checkout() {
                     </div>
                 </div>
             </div>
-            <div className="btn btn-primary">
+
+            {/*<ThongTinNhanHang/>*/}
+            <ThongTinNhanHang dataInfor={dataInfor}
+                              setDataInfor={setDataInfor}
+            />
+
+            <ThongBaoDatHangThanhCong isDatHang={isDatHang}
+                                      dataInfor={dataInfor}
+            />
+
+            <div className="btn btn-primary"
+                 onClick={() => setDatHang(true)}
+            >
                 Thanh toán hóa đơn
             </div>
+
         </div>);
 }
 
@@ -77,7 +102,7 @@ export function OrderDetail(data: any) {
     return (
         <div className="itemCheckout row text-bg-light border border-danger border-to">
             <div className="col-3 d-flex gap-2">
-            <img className="col-1" src={product.productImageUrl}/>
+                <img className="col-1" src={product.productImageUrl}/>
                 <h5>
                     {product.title}
                 </h5>
